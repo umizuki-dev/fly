@@ -20,7 +20,6 @@
 ### ビルド
 
 ```bash
-make
 sudo make install
 ```
 
