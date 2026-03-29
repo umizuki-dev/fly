@@ -1,63 +1,55 @@
-# fly - Minimalist VPNGate Client
+# fly - ミニマリスト VPNGate クライアント
 
-`fly` is a high-performance, secure, and minimalist command-line VPN client for VPNGate. Designed for speed and simplicity, it can establish a connection in under 5 seconds.
+`fly` は、VPNGate 用の高性能、安全、かつミニマリストなコマンドライン VPN クライアントです。
 
-## Features
+## 特徴
 
-- **Ultra-Fast:** Parallel server probing and local latency testing to find the fastest connection.
-- **Secure:** VPN configurations are piped directly to OpenVPN via `stdin`, ensuring sensitive data never touches the disk.
-- **Minimalist:** A clean, flag-driven CLI with a silent "dashboard" interface.
-- **Robust:** Built-in signal handling for graceful disconnection and automatic cleanup.
-- **Performance-Oriented:** Optimized C++ code with a sub-second server verification phase.
+- **超高速:** サーバーの並列プロービングとローカル遅延テストにより、最速の接続を見つけます。
+- **安全:** VPN 設定は `stdin` 経由で直接 OpenVPN に渡されるため、機密データがディスクに保存されることはありません。
+- **ミニマリスト:** シンプルなフラグ駆動の CLI。
+- **高性能:** サブ秒単位のサーバー検証フェーズを備えた最適化された C++ コード。
 
-## Installation
+## インストール
 
-### Prerequisites
+### 必須コンポーネント
 
-- `g++` (C++17 support)
+- `g++` (C++17 サポート)
 - `libcurl`
 - `openvpn`
-- `sudo` privileges (required for OpenVPN to manage network interfaces)
+- `sudo` 権限 (OpenVPN がネットワークインターフェースを管理するために必要)
 
-### Build and Install
+### ビルドとインストール
+
+ソースからビルドしてください。
 
 ```bash
 make
 sudo make install
 ```
 
-## Usage
+## 使い方
 
 ```bash
 fly --help
 ```
 
-### Examples
+### 例
 
-- **Auto-connect to the best Japanese server:**
+- **日本の最適なサーバーに自動接続:**
   ```bash
   fly -a
   ```
 
-- **Connect to a server in a specific country (e.g., US):**
+- **特定の国（例: US）のサーバーに接続:**
   ```bash
   fly -c US
   ```
 
-- **List servers with a specific protocol (e.g., TCP):**
-  ```bash
-  fly -p tcp
-  ```
-
-- **Disconnect any active session:**
+- **アクティブなセッションを終了:**
   ```bash
   fly -k
   ```
 
-## Performance Note
+## ライセンス
 
-In `--auto` mode, `fly` uses an "Early GO" logic. As soon as it finds a server with very low latency (< 35ms), it triggers the connection immediately without waiting for other probes to finish.
-
-## License
-
-GNU GPLv3. See `LICENSE` for details.
+GNU GPLv3。詳細は `LICENSE` を参照してください。
