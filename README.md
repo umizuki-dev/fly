@@ -60,4 +60,4 @@ In `--auto` mode, `fly` uses an "Early GO" logic. As soon as it finds a server w
 
 ## License
 
-MIT License. See `LICENSE` for details.
+GNU GPLv3. See `LICENSE` for details.
